@@ -4,9 +4,9 @@ const btnNext = document.querySelector('.btn-next')
 
 let totalPages = 9
 
-/* window.addEventListener('resize', () => {
-  
-}) */
+window.addEventListener('resize', onPagination)
+
+function onPagination(e) {}
 
 if (window.matchMedia('(max-width: 367px)').matches) {
   function element(totalPages, page) {
@@ -192,5 +192,4 @@ if (window.matchMedia('(max-width: 367px)').matches) {
     ulTag.innerHTML = liTag
   }
 }
-
 element(totalPages, 1)
