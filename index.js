@@ -12,7 +12,7 @@ function element(totalPages, page) {
 
   //show the next button if the page value is greater than 1
   if (page > 1) {
-    liTag += `<li class="btn-prev" onclick="element(totalPages, ${
+    liTag += `<li class="btn-arrow btn-prev" onclick="element(totalPages, ${
       page - 1
     })"><svg class="arrow-left-icon" width="22" height="30"><use href="./sprite.svg#icon-pagination-left"></use></svg></li>`
   }
@@ -83,7 +83,7 @@ function element(totalPages, page) {
 
   //show the next button if the page value is less than totalPage(20)
   if (page < totalPages) {
-    liTag += `<li class="btn-next"  onclick="element(totalPages, ${
+    liTag += `<li class="btn-arrow btn-next"  onclick="element(totalPages, ${
       page + 1
     })"><svg class="arrow-right-icon" width="22" height="30"><use href="./sprite.svg#icon-pagination-right"></use></svg></li>`
   }
