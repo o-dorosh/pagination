@@ -18,7 +18,7 @@ function element(totalPages, page) {
     //show the next button if the page value is greater than 1
     liTag += `<li class="btn-arrow btn-prev" onclick="element(totalPages, ${
       page - 1
-    })"><svg class="arrow-left-icon"><use href="./sprite.svg#icon-pagination-left"></use></svg></li>`
+    })"><svg class="arrow-left-icon" width="16" height="16"><use href="./sprite.svg#icon-pagination-left"></use></svg></li>`
   }
 
   // how many li show before the current li
@@ -78,7 +78,7 @@ function element(totalPages, page) {
   if (page < totalPages) {
     liTag += `<li class="btn-arrow btn-next"  onclick="element(totalPages, ${
       page + 1
-    })"><svg class="arrow-right-icon"><use href="./sprite.svg#icon-pagination-right"></use></svg></li>`
+    })"><svg class="arrow-right-icon" width="16" height="16"><use href="./sprite.svg#icon-pagination-right"></use></svg></li>`
   }
 
   ulTag.innerHTML = liTag
