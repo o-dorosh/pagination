@@ -5,29 +5,45 @@ body {
 }
 
 .pagination ul {
+  margin: 0;
+  padding: 0;
   display: flex;
+  justify-content: space-between;
 
-  width: 280px;
+  max-width: 280px;
   height: 40px;
 }
 
 .pagination li {
+  display: flex;
   border-radius: 5px;
   list-style: none;
-}
+  justify-content: center;
+  align-items: center;
 
-.pagination li.number {
-  padding: 13px 11px;
+  width: 40px;
+  height: 40px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
 }
 
 .pagination li.number.active,
 .pagination li.number:hover,
-.pagination li.number:focus {
-  background-color: aqua;
+.pagination li.number:focus,
+.pagination li.btn-arrow:hover {
+  color: #f7f7f7;
+  background-color: #ff6b08;
   border-radius: 5px;
 }
 
-.btn-arrow {
-  width: 40px;
-  height: 40px;
+.pagination li.btn-arrow {
+  background-color: #f7f7f7;
+}
+
+@media screen and (min-width: 768px) {
+  .pagination ul {
+    max-width: 374px;
+  }
 }

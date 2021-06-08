@@ -2,7 +2,7 @@ const ulTag = document.querySelector('.pagination-list')
 const btnPrev = document.querySelector('.btn-prev')
 const btnNext = document.querySelector('.btn-next')
 
-let totalPages = 20
+let totalPages = 9
 
 function element(totalPages, page) {
   let liTag = ''
@@ -14,30 +14,39 @@ function element(totalPages, page) {
   if (page > 1) {
     liTag += `<li class="btn-prev" onclick="element(totalPages, ${
       page - 1
-    })"><svg class="arrow-left-icon" width="22" height="30"><use href="./sprite.svg#arrow-left"></use></svg></li>`
+    })"><svg class="arrow-left-icon" width="22" height="30"><use href="./sprite.svg#icon-pagination-left"></use></svg></li>`
   }
 
   //if page value is less than 2 then add 1 after the previous button
-  if (page > 2) {
+  if (page > 3) {
     liTag += `<li class="number" onclick="element(totalPages, 1)">1</li>`
   }
 
   //if page value is greater than 3 then add this (...) after the first li or page
-  if (page > 3) {
+  if (page > 4) {
     liTag += `<li class="dots">...</li>`
   }
 
   // how many li show before the current li
   if (page === totalPages) {
-    beforePages = beforePages - 2
+    beforePages = beforePages - 4
   } else if (page === totalPages - 1) {
-    beforePages = beforePages - 1
+    beforePages = beforePages - 3
+  } else if (page === totalPages - 2) {
+    beforePages = beforePages - 2
+  } else if (page === 4) {
+    afterPages = afterPages - 1
   }
 
   // how many li show after the current li
   if (page === 1) {
-    afterPages = afterPages + 2
+    afterPages = afterPages + 4
+    beforePages = beforePages + 1
   } else if (page === 2) {
+    afterPages = afterPages + 3
+  } else if (page === 3) {
+    afterPages = afterPages + 2
+  } else if (page === 4) {
     afterPages = afterPages + 1
   }
 
@@ -63,9 +72,9 @@ function element(totalPages, page) {
     liTag += `<li class="number ${activeLi}" onclick="element(totalPages, ${pageLength})">${pageLength}</li>`
   }
 
-  if (page < totalPages - 1) {
+  if (page < totalPages - 2) {
     //if page value is less than totalPage value by -1 then show the last li or page
-    if (page < totalPages - 2) {
+    if (page < totalPages - 3) {
       //if page value is less than totalPage value by -2 then add this (...) before the last li or page
       liTag += `<li class="dots">...</li>`
     }
@@ -76,10 +85,10 @@ function element(totalPages, page) {
   if (page < totalPages) {
     liTag += `<li class="btn-next"  onclick="element(totalPages, ${
       page + 1
-    })"><svg class="arrow-right-icon" width="22" height="30"><use href="./sprite.svg#arrow-right"></use></svg></li>`
+    })"><svg class="arrow-right-icon" width="22" height="30"><use href="./sprite.svg#icon-pagination-right"></use></svg></li>`
   }
 
   ulTag.innerHTML = liTag
 }
 
-element(totalPages, 5)
+element(totalPages, 1)

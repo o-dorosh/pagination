@@ -2,7 +2,7 @@ const ulTag = document.querySelector('.pagination-list')
 const btnPrev = document.querySelector('.btn-prev')
 const btnNext = document.querySelector('.btn-next')
 
-let totalPages = 10
+let totalPages = 4
 
 function element(totalPages, page) {
   let liTag = ''
@@ -18,7 +18,7 @@ function element(totalPages, page) {
     //show the next button if the page value is greater than 1
     liTag += `<li class="btn-arrow btn-prev" onclick="element(totalPages, ${
       page - 1
-    })"><svg class="arrow-left-icon" width="22" height="30"><use href="./sprite.svg#arrow-left"></use></svg></li>`
+    })"><svg class="arrow-left-icon" width="22" height="30"><use href="./sprite.svg#icon-pagination-left"></use></svg></li>`
   }
 
   // how many li show before the current li
@@ -70,7 +70,7 @@ function element(totalPages, page) {
   if (page < totalPages) {
     liTag += `<li class="btn-arrow btn-next"  onclick="element(totalPages, ${
       page + 1
-    })"><svg class="arrow-right-icon" width="22" height="30"><use href="./sprite.svg#arrow-right"></use></svg></li>`
+    })"><svg class="arrow-right-icon" width="22" height="30"><use href="./sprite.svg#icon-pagination-right"></use></svg></li>`
   }
 
   ulTag.innerHTML = liTag
