@@ -18,12 +18,12 @@ function element(totalPages, page) {
   }
 
   //if page value is less than 2 then add 1 after the previous button
-  if (page > 3) {
+  if (page > 3 && totalPages > 7) {
     liTag += `<li class="number" onclick="element(totalPages, 1)">1</li>`
   }
 
-  //if page value is greater than 3 then add this (...) after the first li or page
-  if (page > 4) {
+  //if page value is greater than 4 then add this (...) after the first li or page
+  if (page > 4 && totalPages > 8) {
     liTag += `<li class="dots">...</li>`
   }
 
@@ -34,8 +34,24 @@ function element(totalPages, page) {
     beforePages = beforePages - 3
   } else if (page === totalPages - 2) {
     beforePages = beforePages - 2
-  } else if (page === 4) {
-    afterPages = afterPages - 1
+  } else if (page === totalPages - 3) {
+    beforePages = beforePages - 1
+  }
+
+  if (totalPages === 7) {
+    beforePages = beforePages
+  } else if (totalPages === 6) {
+    beforePages = beforePages
+  } else if (totalPages === 5) {
+    beforePages = beforePages + 1
+  } else if (totalPages === 4) {
+    beforePages = beforePages + 2
+  } else if (totalPages === 3) {
+    beforePages = beforePages + 3
+  } else if (totalPages === 2) {
+    beforePages = beforePages + 4
+  } else if (totalPages === 1) {
+    beforePages = beforePages + 5
   }
 
   // how many li show after the current li
@@ -72,9 +88,9 @@ function element(totalPages, page) {
     liTag += `<li class="number ${activeLi}" onclick="element(totalPages, ${pageLength})">${pageLength}</li>`
   }
 
-  if (page < totalPages - 2) {
+  if (page < totalPages - 2 && totalPages > 7) {
     //if page value is less than totalPage value by -1 then show the last li or page
-    if (page < totalPages - 3) {
+    if (page < totalPages - 3 && totalPages > 8) {
       //if page value is less than totalPage value by -2 then add this (...) before the last li or page
       liTag += `<li class="dots">...</li>`
     }
